@@ -80,6 +80,13 @@ class InflateWorker(object):
         '''
         return self.any_byte_valid(0x9C, byte_value, verbose=verbose)
 
+    def fdict_flag(self, byte_value):
+        '''
+        InflateWorker:
+        RFC 1950, FLG.FDICT
+        '''
+        return byte_value & (1 << 5)
+
 
 class TestManualDecoding(unittest.TestCase):
     def test_manual_decoding(self):
@@ -105,6 +112,14 @@ class TestManualDecoding(unittest.TestCase):
         obj = InflateWorker()
         self.assertEqual(obj.second_byte_valid(0x9C), 1)
         self.assertEqual(obj.second_byte_valid(0xFF, verbose=global_test_verbose), 0)
+
+    def test_dict_flag(self):
+        '''
+        TestManualDecoding:
+        '''
+        obj = InflateWorker()
+        self.assertFalse(obj.fdict_flag(0x9C))
+        self.assertTrue(obj.fdict_flag(0xBC))
 
 
 if __name__ == '__main__':
