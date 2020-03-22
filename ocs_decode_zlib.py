@@ -15,6 +15,9 @@ import unittest
 
 global_test_verbose = 0
 
+THIRD_B2 = 0xB2
+THIRD_6D = 0x6D
+
 def to_string(byte_ls):
     return ''.join(map(chr, byte_ls))
 
@@ -120,6 +123,13 @@ class TestManualDecoding(unittest.TestCase):
         obj = InflateWorker()
         self.assertFalse(obj.fdict_flag(0x9C))
         self.assertTrue(obj.fdict_flag(0xBC))
+
+    def test_third_byte(self):
+        '''
+        TestManualDecoding:
+        '''
+        self.assertEqual(THIRD_B2, 0xB2)
+        self.assertEqual(THIRD_6D, 0x6D)
 
 
 if __name__ == '__main__':
