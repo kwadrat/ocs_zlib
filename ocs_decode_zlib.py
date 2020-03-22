@@ -69,12 +69,14 @@ class InflateWorker(object):
     def first_byte_valid(self, byte_value, verbose=0):
         '''
         InflateWorker:
+        RFC 1950, CMF (compression method and info)
         '''
         return self.any_byte_valid(0x78, byte_value, verbose=verbose)
 
     def second_byte_valid(self, byte_value, verbose=0):
         '''
         InflateWorker:
+        RFC 1950, FLG (flags)
         '''
         return self.any_byte_valid(0x9C, byte_value, verbose=verbose)
 
