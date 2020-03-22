@@ -2,7 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 '''
-send/received by 
+send/received by
 https://github.com/OCSInventory-NG/WindowsAgent.git
 Testing:
 ./ocs_decode_zlib.py test; red_green_bar.py $? $COLUMNS
